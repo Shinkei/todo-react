@@ -1,6 +1,8 @@
 // We create an initial state with a list of todos
 const initialState = {
-    todos: []
+    todos: [
+        {id:1, name: 'Create s Store', isCompleted: true}
+    ]
 };
 
 // here we are esporting the state because we haven't defined the actions
