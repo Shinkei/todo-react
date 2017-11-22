@@ -17,8 +17,8 @@ class App extends Component {
           TODO App to test the react and redux functionalities
         </p>
         <div className="Todo-App">
-          <TodoForm/>
-          <TodoList todos={this.props.todos}/>
+          <TodoForm />
+          <TodoList todos={this.props.todos} />
         </div>
       </div>
     );
