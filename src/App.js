@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
-import { bindActionCreators } from 'redux';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
@@ -28,9 +27,5 @@ class App extends Component {
   }
 }
 
-
-const mapStateToProps = (state) => state;
-const mapDispatchToProps = (dispatch) => bindActionCreators({ updateCurrentAction }, dispatch); // Here we map the actions into the props we are passing to the App component
-// connect out main component with the store
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
-export default ConnectedApp;
+// connect out main component with the store, pass the state and list of actions
+export default connect((state) => state, { updateCurrentAction })(App);
