@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
+import { bindActionCreators } from 'redux';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import { updateCurrentAction } from './reducers/todo';
 
 class App extends Component {
 
@@ -18,7 +20,7 @@ class App extends Component {
           TODO App to test the react and redux functionalities
         </p>
         <div className="Todo-App">
-          <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.changeCurrent} />
+          <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.updateCurrentAction} />
           <TodoList todos={this.props.todos} />
         </div>
       </div>
@@ -26,7 +28,9 @@ class App extends Component {
   }
 }
 
+
 const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => bindActionCreators({ updateCurrentAction }, dispatch); // Here we map the actions into the props we are passing to the App component
 // connect out main component with the store
-const ConnectedApp = connect(mapStateToProps)(App);
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 export default ConnectedApp;
