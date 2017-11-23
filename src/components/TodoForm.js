@@ -6,6 +6,7 @@ export default (props) => {
     const {currentTodo, changeCurrent} = props;
 
     const handleInputChange = event => {
+        // every time the input gets an action, it is going to enter this method
         const value = event.target.value;
         changeCurrent(value);
     }

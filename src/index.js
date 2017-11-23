@@ -4,8 +4,10 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
+import {updateCurrentAction} from './reducers/todo';
 
-const todoChangeHandler = value => store.dispatch({type: 'CURRENT_UPDATE', payload: value});
+// we start handling the actions only in the reducer and import them to use in another places
+const todoChangeHandler = value => store.dispatch(updateCurrentAction(value));
 
 const render = () => {
     // get a global state from the store for the todo objects
