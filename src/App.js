@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import { updateCurrentAction } from './reducers/todo';
 
 class App extends Component {
 
@@ -19,13 +17,12 @@ class App extends Component {
           TODO App to test the react and redux functionalities
         </p>
         <div className="Todo-App">
-          <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.updateCurrentAction} />
-          <TodoList todos={this.props.todos} />
+          <TodoForm />
+          <TodoList />
         </div>
       </div>
     );
   }
 }
 
-// connect out main component with the store, pass the state and list of actions
-export default connect((state) => state, { updateCurrentAction })(App);
+export default App;

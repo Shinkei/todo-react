@@ -1,4 +1,5 @@
 import React, { Component}from 'react';
+import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
 
 // Class component that represents the list od todos into the app
@@ -17,4 +18,7 @@ class TodoList extends Component {
     }
 }
 
-export default TodoList;
+// We export  the component after aplying the conenct pater and asign the todos value from the state
+export default connect(
+    (state) => ({todos: state.todos})
+)(TodoList);
