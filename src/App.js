@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './components/TodoForm';
@@ -17,7 +18,7 @@ class App extends Component {
           TODO App to test the react and redux functionalities
         </p>
         <div className="Todo-App">
-          <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.changeCurrent}/>
+          <TodoForm currentTodo={this.props.currentTodo} changeCurrent={this.props.changeCurrent} />
           <TodoList todos={this.props.todos} />
         </div>
       </div>
@@ -25,4 +26,7 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => state;
+// connect out main component with the store
+const ConnectedApp = connect(mapStateToProps)(App);
+export default ConnectedApp;
