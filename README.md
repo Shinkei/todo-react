@@ -7,6 +7,7 @@
 ```yarn add react-redux```
 ```yarn add json-server```
 ```yarn add redux-thunk```
+```yarn add redux-devtools-extension```
 
 ### How to run the app
 > ```yarn start```
