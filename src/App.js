@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Message from './components/Message';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
@@ -17,6 +18,7 @@ class App extends Component {
           TODO App to test the react and redux functionalities
         </p>
         <div className="Todo-App">
+          <Message message="hello"/>
           <TodoForm />
           <TodoList />
         </div>
