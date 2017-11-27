@@ -1,4 +1,5 @@
 import { getTodos, postTodos } from './../lib/todoServices';
+import { showMessageAction } from './messages';
 
 // We create an initial state with a list of todos
 const initialState = {
@@ -28,6 +29,7 @@ export const fetchTodosAction = () => { // create an action that using a promise
 // action creator to add a todo task
 export const saveTodoAction = (name) => {
     return (dispatch) => {
+        dispatch(showMessageAction('Saving Todo')); // call the action from a the message reducer to dhow a message
         postTodos(name).then(todo => dispatch(addTodoAction(todo)));
     }
 };

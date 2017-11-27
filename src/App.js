@@ -18,7 +18,7 @@ class App extends Component {
           TODO App to test the react and redux functionalities
         </p>
         <div className="Todo-App">
-          <Message message="hello"/>
+          <Message />
           <TodoForm />
           <TodoList />
         </div>

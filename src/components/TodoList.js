@@ -25,6 +25,6 @@ class TodoList extends Component {
 
 // We export  the component after aplying the conenct pater and asign the todos value from the state
 export default connect(
-    (state) => ({ todos: state.todos }),
-    { fetchTodosAction }
+    (state) => ({ todos: state.todo.todos }),
+    { fetchTodosAction } //     ∟> this is the name if the reducer we want to use with this component
 )(TodoList);

@@ -35,6 +35,6 @@ class TodoForm extends Component {
 
 // Here we export the component after applying the connect to redux and algo sending the updateCurrentAction fom the reducer, so it can be user from the props
 export default connect(
-    (state) => ({ currentTodo: state.currentTodo }),
+    (state) => ({ currentTodo: state.todo.currentTodo }),
     { updateCurrentAction, saveTodoAction }
 )(TodoForm);
