@@ -1,4 +1,4 @@
-import { getTodos, postTodo, putTodo } from './../lib/todoServices';
+import { getTodos, postTodo, putTodo, deleteTodo } from './../lib/todoServices';
 import { showMessageAction } from './messages';
 
 // We create an initial state with a list of todos
@@ -11,6 +11,7 @@ const initialState = {
 export const ADD = 'ADD';
 export const LOAD = 'LOAD';
 export const REPLACE = 'REPLACE';
+export const DELETE = 'DELETE';
 const UPDATE_INPUT = 'UPDATE_INPUT';
 
 // add todo task to the store
@@ -19,6 +20,7 @@ export const loadTodosAction = (todos) => ({ type: LOAD, payload: todos });
 // export this action to centralice the actions the application can perform 
 export const updateCurrentAction = (value) => ({ type: UPDATE_INPUT, payload: value });
 export const replaceTodoAction = (todo) => ({ type: REPLACE, payload: todo });
+export const removeTodoAction = (id) => ({type: DELETE, payload: id});
 
 
 // action creator to fetch the todo list from the server
@@ -50,6 +52,14 @@ export const toggleTodoAction = (id) => {
     };
 };
 
+export const deleteTodoAction = (id) => {
+    return (dispatch) => {
+        dispatch(showMessageAction('Deleting'));
+        deleteTodo(id)
+            .then(() => dispatch(removeTodoAction(id)));
+    };
+};
+
 // here we are esporting the state because we haven't defined the actions
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -66,6 +76,8 @@ export default (state = initialState, action) => {
                     element => element.id === action.payload.id ? action.payload : element
                 )
             }; // search for the updated task and then replace it
+        case DELETE:
+            return {...state, todos: state.todos.filter(element => element.id !== action.payload)};
         default:
             return state;
     }

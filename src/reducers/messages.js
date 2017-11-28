@@ -1,4 +1,4 @@
-import { ADD, LOAD, REPLACE } from './todo'; // import the action constant  from the todo reducer 
+import { ADD, LOAD, REPLACE, DELETE } from './todo'; // import the action constant  from the todo reducer 
 
 const initialState = {
     message: ''
@@ -16,6 +16,7 @@ export default function (state = initialState, action) {
         case ADD:
         case LOAD: // Here we return an empty string so the message we show is erased when the proces finish
         case REPLACE:
+        case DELETE:
             return '';
         default:
             return state;
