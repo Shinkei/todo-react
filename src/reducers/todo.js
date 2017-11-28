@@ -8,8 +8,8 @@ const initialState = {
 };
 
 // create constands for the actions to prevent future errors related with typos
-const ADD = 'ADD';
-const LOAD = 'LOAD';
+export const ADD = 'ADD';
+export const LOAD = 'LOAD';
 const UPDATE_INPUT = 'UPDATE_INPUT';
 
 // add todo task to the store
@@ -21,6 +21,7 @@ export const updateCurrentAction = (value) => ({ type: UPDATE_INPUT, payload: va
 // action creator to fetch the todo list from the server
 export const fetchTodosAction = () => { // create an action that using a promise retrieve the list of todos 
     return (dispatch) => {
+        dispatch(showMessageAction('Loading Todos')); // We put the message loading at the moment we start searching 
         getTodos()
             .then(todos => dispatch(loadTodosAction(todos)));
     }
