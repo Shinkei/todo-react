@@ -19,7 +19,7 @@ class App extends Component {
         <p className="App-intro">
           TODO App to test the react and redux functionalities
         </p>
-        <Router> // inside this tag, the app will become a SPA
+        <Router>
           <div className="Todo-App">
             <Message />
             <TodoForm />
