@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
-import { fetchTodosAction, toggleTodoAction, deleteTodoAction } from './../reducers/todo';
+import { fetchTodosAction, toggleTodoAction, deleteTodoAction, getVisibleTodos } from './../reducers/todo';
 
 // Class component that represents the list od todos into the app
 class TodoList extends Component {
@@ -29,6 +29,7 @@ class TodoList extends Component {
 
 // We export  the component after aplying the conenct pater and asign the todos value from the state
 export default connect(
-    (state) => ({ todos: state.todo.todos }),// state.todo is the name if the reducer we want to use with this component
+    (state, ownProps) => ({ todos: getVisibleTodos(state.todo.todos, ownProps.filter) }),// state.todo is the name if the reducer we want to use with this component
+    // here we call the getVisibleTodos function and pass it the filtar according with the router (check app.js:26)
     { fetchTodosAction, toggleTodoAction, deleteTodoAction }
 )(TodoList);

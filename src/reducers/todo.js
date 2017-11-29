@@ -60,6 +60,19 @@ export const deleteTodoAction = (id) => {
     };
 };
 
+// selector function to show according with the router navigation
+export const getVisibleTodos = (todos, filter) => {
+    switch (filter) {
+        case 'active':
+            return todos.filter(element => element.isCompleted === false);
+        case 'completed':
+            return todos.filter(element => element.isCompleted === true);
+        default:
+            return todos;
+    }
+};
+
+
 // here we are esporting the state because we haven't defined the actions
 export default (state = initialState, action) => {
     switch (action.type) {
