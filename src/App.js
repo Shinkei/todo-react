@@ -14,10 +14,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to shinkei-react</h1>
+          <h1 className="App-title">Shinkei TODO App</h1>
         </header>
         <p className="App-intro">
-          TODO App to test the react and redux functionalities
+          Add task and complete them
         </p>
         <Router>
           <div className="Todo-App">
